@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url(https://fonts.googleapis.com/css2?family=Space+Mono:wght@100;200;300;400;500;600;700&display=swap);
+
+body {
+  font-family: 'Space Mono', monospace;
+  height: 100vh;
+}
+
+@layer components {
+    .main-container {
+        @apply max-w-[730px] w-full mx-auto
+    }
+}
+
+body {
+    background-color: #f6f8ff;
+}
