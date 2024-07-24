@@ -3,6 +3,7 @@ import { Button } from '@material-tailwind/react'
 
 // react icons
 import { FiSearch } from "react-icons/fi";
+import { FaDeleteLeft } from "react-icons/fa6";
 
 // react
 import { useRef } from 'react';
@@ -35,16 +36,22 @@ function Search({ setInfo }) {
                 `}}
             onSubmit={handleSubmit}
         >
-            <label className='flex items-center gap-[24px] w-full'>
+            <label className='flex items-center gap-[24px] w-full mr-4'>
                 <FiSearch size={28} color='#0079FF' />
                 <input
                     placeholder='Search GitHub username…'
                     className='w-full bg-transparent focus:outline-none text-[#4B6A9B] text-[18px] placeholder:text-[18px] placeholder:text-[#4B6A9B]'
                     type='text'
                     ref={inputRef}
-                    // onChange={handleClickSearch}
+                    onChange={handleClickSearch}
                 />
 
+                <FaDeleteLeft
+                    className='cursor-pointer'
+                    size={30}
+                    onClick={() => {
+                        inputRef.current.value = ``
+                    }} />
             </label>
 
             <Button

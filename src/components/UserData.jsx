@@ -6,6 +6,9 @@ import { RiInstagramFill } from "react-icons/ri";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa";
 
+// components
+import CollapseDefault from "./Collapse";
+
 // "https://avatars.githubusercontent.com/u/176285989?v=4"
 // "https://avatars.githubusercontent.com/u/156794476?v=4"
 
@@ -39,7 +42,7 @@ function UserData({ user, error, isPending }) {
             <img className="w-[75px] bg-transparent" src="../assets/loader.svg" alt="loader" />
           </div>
           :
-          <div>
+          <div className="">
             {error ? <div className="text-4xl">
               {error}
             </div> :

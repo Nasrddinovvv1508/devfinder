@@ -1,15 +1,26 @@
-// react
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
 // rrd
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 // icons
 import { FaSun } from "react-icons/fa";
 import { IoMdMoon } from "react-icons/io";
 
+function themeFromLocalStorage() {
+    return (
+        JSON.parse(localStorage.getItem(`theme`)) || false
+    );
+}
+
 function Navbar() {
-    let [theme, setTheme] = useState(false);
+    // hooks
+    let [theme, setTheme] = useState(themeFromLocalStorage());
+
+    useEffect(() => {
+        localStorage.setItem(`theme`, JSON.stringify(theme));
+        document.documentElement.setAttribute(`data-theme`, theme ? `dracula` : 'winter');
+    }, [theme]);
 
     return (
         <div className="main-container navbar bg-transparent">
@@ -19,30 +30,26 @@ function Navbar() {
                 </Link>
             </div>
 
-            <div className="navbar-end" onClick={() => setTheme(!theme)}>
-                <div >
-                    <label htmlFor='themeCont' className='swap'>
-                        {theme ? 'Ligth' : `Dark`}
-                    </label>
+            <div className="navbar-end">
+                <div
+                    onClick={() => setTheme(!theme)}
+                    className="cursor-pointer"
+                >
+                    {theme ? (
+                        <div className="flex items-center gap-1">
+                            <p className="uppercase">Light</p>
+                            <FaSun className='h-[20px] w-[20px]' />
+                        </div>
+                    ) : (
+                        <div className="flex items-center gap-1">
+                            <p className="uppercase">Dark</p>
+                            <IoMdMoon className='h-[20px] w-[20px]' />
+                        </div>
+                    )}
                 </div>
-                <label className="swap swap-rotate">
-                    {/* this hidden checkbox controls the state */}
-                    <input id='themeCont' onClick={() => setTheme(!theme)} type="checkbox" />
-
-                    {/* sun icon */}
-                    <div className='swap-on fill-current  flex'>
-                        <FaSun className='h-[20px] w-[20px]' />
-                    </div>
-
-                    {/* moon icon */}
-                    <div className='swap-off fill-current flex'>
-                        <IoMdMoon className='h-[20px] w-[20px]' />
-                    </div>
-
-                </label>
             </div>
         </div>
-    )
+    );
 }
 
-export default Navbar
+export default Navbar;

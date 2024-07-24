@@ -30,6 +30,7 @@ function Piechart() {
 
     })
 
+    
     return (
         <div>
             <div id="chart">

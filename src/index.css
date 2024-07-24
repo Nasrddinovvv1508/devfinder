@@ -5,16 +5,13 @@
 @import url(https://fonts.googleapis.com/css2?family=Space+Mono:wght@100;200;300;400;500;600;700&display=swap);
 
 body {
-  font-family: 'Space Mono', monospace;
-  height: 100vh;
+    font-family: 'Space Mono', monospace;
+    height: 100vh;
+    background-color: #f6f8ff;
 }
 
 @layer components {
     .main-container {
         @apply max-w-[730px] w-full mx-auto
     }
-}
-
-body {
-    background-color: #f6f8ff;
 }
