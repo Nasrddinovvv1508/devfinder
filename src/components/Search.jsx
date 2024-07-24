@@ -30,7 +30,7 @@ function Search({ setInfo }) {
 
     return (
         <form
-            className='w-full mt-[19px] rounded-[15px] py-[10px] pl-[32px] bg-white pr-[10px] flex justify-between'
+            className='w-full mt-[19px] rounded-[15px] py-[10px] pl-[32px] bg-base-100 pr-[10px] flex justify-between'
             style={{
                 boxShadow: `0px 16px 30px -10px #4660BB33
                 `}}

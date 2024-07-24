@@ -19,7 +19,7 @@ function Navbar() {
 
     useEffect(() => {
         localStorage.setItem(`theme`, JSON.stringify(theme));
-        document.documentElement.setAttribute(`data-theme`, theme ? `dracula` : 'winter');
+        document.documentElement.setAttribute(`data-theme`, theme ? `night` : 'light');
     }, [theme]);
 
     return (

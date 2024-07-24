@@ -13,6 +13,6 @@ module.exports = withMT({
   },
   plugins: [require('daisyui'),],
   daisyui: {
-    themes: ["winter", "dracula"],
+    themes: ["light", "sunset", `night`],
   },
 })

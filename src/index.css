@@ -7,7 +7,7 @@
 body {
     font-family: 'Space Mono', monospace;
     height: 100vh;
-    background-color: #f6f8ff;
+    /* background-color: #f6f8ff; */
 }
 
 @layer components {

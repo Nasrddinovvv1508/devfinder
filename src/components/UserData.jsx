@@ -47,7 +47,7 @@ function UserData({ user, error, isPending }) {
               {error}
             </div> :
               <div
-                className="main-container p-[48px] bg-white rounded-[15px] flex flex-col items-end"
+                className="main-container p-[48px] bg-base-100 rounded-[15px] flex flex-col items-end"
                 style={{
                   boxShadow: `0px 16px 30px -10px #4660BB33`
                 }}>
@@ -78,20 +78,20 @@ function UserData({ user, error, isPending }) {
                 </div>
 
                 <div className="w-3/4 mt-[32px]">
-                  <div className="mb-[37px] bg-[#F6F8FF] pt-[15px] pr-[83px] pb-[17px] pl-[32px] rounded-[15px] flex justify-between">
+                  <div className="mb-[37px] bg-base-200 pt-[15px] pr-[83px] pb-[17px] pl-[32px] rounded-[15px] flex justify-between">
                     <div>
                       <span className="text-[15px] text-[#4B6A9B]">Repos</span>
-                      <p className="font-bold text-[22px] text-[#2B3442]"> {user.public_repos} </p>
+                      <p className="font-bold text-[22px] "> {user.public_repos} </p>
                     </div>
 
                     <div>
                       <span className="text-[15px] text-[#4B6A9B]">Followers</span>
-                      <p className="font-bold text-[22px] text-[#2B3442]">{user.followers}</p>
+                      <p className="font-bold text-[22px] ">{user.followers}</p>
                     </div>
 
                     <div>
                       <span className="text-[15px] text-[#4B6A9B]">Following</span>
-                      <p className="font-bold text-[22px] text-[#2B3442]"> {user.following} </p>
+                      <p className="font-bold text-[22px] "> {user.following} </p>
                     </div>
                   </div>
 
