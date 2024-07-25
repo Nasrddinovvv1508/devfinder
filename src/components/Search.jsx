@@ -43,7 +43,7 @@ function Search({ setInfo }) {
                     className='w-full bg-transparent focus:outline-none text-[#4B6A9B] text-[18px] placeholder:text-[18px] placeholder:text-[#4B6A9B]'
                     type='text'
                     ref={inputRef}
-                    onChange={handleClickSearch}
+                    // onChange={handleClickSearch}
                 />
 
                 <FaDeleteLeft

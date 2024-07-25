@@ -8,9 +8,16 @@ import { FaSun } from "react-icons/fa";
 import { IoMdMoon } from "react-icons/io";
 
 function themeFromLocalStorage() {
-    return (
-        JSON.parse(localStorage.getItem(`theme`)) || false
-    );
+    const theme = localStorage.getItem('theme');
+    if (theme) {
+        try {
+            return JSON.parse(theme);
+        } catch (error) {
+            console.error("Mahalliy saqlashdan olingan tema noto'g'ri formatlangan:", error);
+            localStorage.removeItem('theme');
+        }
+    }
+    return false;
 }
 
 function Navbar() {
@@ -37,12 +44,12 @@ function Navbar() {
                 >
                     {theme ? (
                         <div className="flex items-center gap-1">
-                            <p className="uppercase">Light</p>
+                            <p className="uppercase select-none">Light</p>
                             <FaSun className='h-[20px] w-[20px]' />
                         </div>
                     ) : (
                         <div className="flex items-center gap-1">
-                            <p className="uppercase">Dark</p>
+                            <p className="uppercase select-none">Dark</p>
                             <IoMdMoon className='h-[20px] w-[20px]' />
                         </div>
                     )}

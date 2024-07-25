@@ -7,9 +7,6 @@ function Home() {
     let [info, setInfo] = useState(null);
 
     let { data, isPending, error } = useFetch(`https://api.github.com/users/${info}`)
-    console.log(error);
-
-    console.log(isPending, data);
 
     return (
         <div className='h-full'>

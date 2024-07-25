@@ -8,6 +8,7 @@ import { FaTwitter } from "react-icons/fa";
 
 // components
 import CollapseDefault from "./Collapse";
+import Piechart from "./Piechart";
 
 // "https://avatars.githubusercontent.com/u/176285989?v=4"
 // "https://avatars.githubusercontent.com/u/156794476?v=4"
@@ -17,7 +18,6 @@ function UserData({ user, error, isPending }) {
   // functions
   function avatarUrl(urlImg) {
     let leftPart = urlImg.split('/u')[0];
-    console.log(leftPart);
     return leftPart;
   }
 
@@ -121,6 +121,8 @@ function UserData({ user, error, isPending }) {
                     </div>
                   </div>
                 </div>
+
+                <CollapseDefault />
               </div>
             }
 
