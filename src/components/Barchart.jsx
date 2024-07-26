@@ -4,12 +4,12 @@ import React, { useState } from "react";
 // react apexcharts
 import ReactApexChart from "react-apexcharts";
 
-function Piechart() {
+function Barchart({ data, categories }) {
     let [chartData, setChartData] = useState(
         {
 
             series: [{
-                data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+                data
             }],
             options: {
                 chart: {
@@ -48,9 +48,7 @@ function Piechart() {
                     colors: ['#fff']
                 },
                 xaxis: {
-                    categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
-                        'United States', 'China', 'India'
-                    ],
+                    categories
                 },
                 yaxis: {
                     labels: {
@@ -85,7 +83,7 @@ function Piechart() {
 
 
     return (
-        <div className="w-full bg-base-100 ">
+        <div className="w-full bg-base-100 rounded-lg">
             <div id="chart" className="w-full">
                 <ReactApexChart options={chartData.options} series={chartData.series} type="bar" height={380} />
             </div>
@@ -94,4 +92,4 @@ function Piechart() {
     )
 }
 
-export default Piechart
+export default Barchart

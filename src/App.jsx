@@ -6,7 +6,7 @@ import { Navbar } from './components'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 // pages
-import { Home } from './pages'
+import { Home, SeeMore } from './pages'
 
 // layouts
 import MainLayout from './layout/MainLayout'
@@ -19,6 +19,10 @@ function App() {
       {
         index: true,
         element: <Home />
+      },
+      {
+        path: `/seemore/:username`,
+        element: <SeeMore />
       }
     ]
   }])

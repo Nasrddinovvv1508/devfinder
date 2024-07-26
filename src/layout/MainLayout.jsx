@@ -9,7 +9,7 @@ import { Navbar } from '../components'
 
 function MainLayout() {
     return (
-        <div className='pt-[20px]'>
+        <div className='pt-[10px]'>
             <Navbar />
             <main>
                 <Outlet />

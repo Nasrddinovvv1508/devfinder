@@ -1,5 +1,5 @@
 // rect router dom
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 
 // react icons
 import { RiInstagramFill } from "react-icons/ri";
@@ -8,12 +8,13 @@ import { FaTwitter } from "react-icons/fa";
 
 // components
 import CollapseDefault from "./Collapse";
-import Piechart from "./Piechart";
+import { Button } from "@material-tailwind/react";
 
-// "https://avatars.githubusercontent.com/u/176285989?v=4"
-// "https://avatars.githubusercontent.com/u/156794476?v=4"
+// hooks
+import { useGlobalContext } from "../hooks";
 
 function UserData({ user, error, isPending }) {
+  let { theme } = useGlobalContext()
 
   // functions
   function avatarUrl(urlImg) {
@@ -29,7 +30,7 @@ function UserData({ user, error, isPending }) {
     const options = { day: '2-digit', month: 'short', year: 'numeric' };
     const formattedDate = date.toLocaleDateString('en-US', options);
 
-    return formattedDate.replace(/,/, ''); // remove the comma
+    return formattedDate.replace(/,/, '');
   }
 
   let isoDate = formatDate(user?.created_at)
@@ -57,7 +58,7 @@ function UserData({ user, error, isPending }) {
                     <div className="w-full flex justify-between ">
                       <div>
                         <h1 className="font-bold text-[26px] mb-[2px]">{user.name ? user.name : `unnamed user`}</h1>
-                        <Link to={user.html_url} className="text-[16px] text-[#0079FF]">
+                        <Link to={user.html_url} target="_blank" className="text-[16px] text-[#0079FF]">
                           @{user.login}
                         </Link>
                       </div>
@@ -122,7 +123,27 @@ function UserData({ user, error, isPending }) {
                   </div>
                 </div>
 
-                <CollapseDefault />
+                <Link to={`/seemore/${user.login}`}>
+                  <Button
+                    variant="text"
+                    className={`flex items-center gap-2 mt-[25px] ${theme ? `text-white` : ``}`}>
+                    See More{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                      stroke="currentColor"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                      />
+                    </svg>
+                  </Button>
+                </Link>
               </div>
             }
 

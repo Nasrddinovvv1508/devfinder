@@ -1,3 +1,4 @@
+// react
 import React, { useEffect, useState } from 'react';
 
 // rrd
@@ -7,27 +8,11 @@ import { Link } from 'react-router-dom';
 import { FaSun } from "react-icons/fa";
 import { IoMdMoon } from "react-icons/io";
 
-function themeFromLocalStorage() {
-    const theme = localStorage.getItem('theme');
-    if (theme) {
-        try {
-            return JSON.parse(theme);
-        } catch (error) {
-            console.error("Mahalliy saqlashdan olingan tema noto'g'ri formatlangan:", error);
-            localStorage.removeItem('theme');
-        }
-    }
-    return false;
-}
+// hooks
+import { useGlobalContext } from '../hooks';
 
 function Navbar() {
-    // hooks
-    let [theme, setTheme] = useState(themeFromLocalStorage());
-
-    useEffect(() => {
-        localStorage.setItem(`theme`, JSON.stringify(theme));
-        document.documentElement.setAttribute(`data-theme`, theme ? `night` : 'light');
-    }, [theme]);
+    let { theme, setTheme } = useGlobalContext();
 
     return (
         <div className="main-container navbar bg-transparent">
